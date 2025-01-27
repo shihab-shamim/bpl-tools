@@ -139,6 +139,15 @@ console.log(ImageType);
         <div className="backgroundStyle">
           <span>Seamlessly brand customer directed process improvements via user-centric web-readiness. Distinctively coordinate professional deliverables after focused mindshare. Efficiently enhance resource sucking synergy without high-payoff synergy. Continually plagiarize resource sucking catalysts for change without performance based partnerships. Interactively syndicate ubiquitous imperatives with superior intellectual.</span>
         </div>
+
+        <div className="allBorder">
+        <span>Seamlessly brand customer directed process improvements via user-centric web-readiness. Distinctively coordinate professional deliverables after focused mindshare. Efficiently enhance resource sucking synergy without high-payoff synergy. Continually plagiarize resource sucking catalysts for change without performance based partnerships. Interactively syndicate ubiquitous imperatives with superior intellectual.</span>
+          
+        </div>
+
+        <div className="shadow">
+        <span>Seamlessly brand customer directed process improvements via user-centric web-readiness. Distinctively coordinate professional deliverables after focused mindshare. Efficiently enhance resource sucking synergy without high-payoff synergy. Continually plagiarize resource sucking catalysts for change without performance based partnerships. Interactively syndicate ubiquitous imperatives with superior intellectual.</span>
+        </div>
       </div>
 
 

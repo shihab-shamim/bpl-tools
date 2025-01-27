@@ -1,13 +1,15 @@
-import { getColorsCSS,getTypoCSS,getBackgroundCSS } from '../../../../bpl-tools/utils/getCSS';
+import { getColorsCSS,getTypoCSS,getBackgroundCSS,getBorderCSS,getMultiShadowCSS } from '../../../../bpl-tools/utils/getCSS';
 
 const Style = ({ attributes, id,dynamicStyle ,device="desktop" }) => {
-	const { colors,width,ImageType } = attributes;
+	const { colors,width,ImageType ,borders,shadow} = attributes;
 
 	const mainSl = `#${id}`;
 	const blockSl = `${mainSl} .bBlocksTestPurpose`;
 	const typho=`${mainSl} p`;
 	const div=`${mainSl} div`
-	const backgroundStyle=`${mainSl} .backgroundStyle`;
+	const backgroundStyle=`${mainSl} .backgroundStyle`
+	const shadows=`${mainSl} .shadow`
+	const allBorder=`${mainSl} .allBorder`;
 
 	return <style dangerouslySetInnerHTML={{
 		__html: `
@@ -20,7 +22,7 @@ const Style = ({ attributes, id,dynamicStyle ,device="desktop" }) => {
 		}
 			${div}{
 			width:${width[device]};
-			background-color:red;
+			
 			}
 
 
@@ -28,10 +30,15 @@ const Style = ({ attributes, id,dynamicStyle ,device="desktop" }) => {
                 ${getBackgroundCSS(ImageType)}
 				
                 }
+			${allBorder}{
+			${getBorderCSS(borders)}
+			}
 
 
-
-
+			${shadows}{
+			 box-shadow : ${getMultiShadowCSS(shadow)};
+			 height :400px;
+			}
 
 
 			@media only screen and (min-width:641px) and (max-width: 1024px){

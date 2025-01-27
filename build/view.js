@@ -425,13 +425,17 @@ const Style = ({
   const {
     colors,
     width,
-    ImageType
+    ImageType,
+    borders,
+    shadow
   } = attributes;
   const mainSl = `#${id}`;
   const blockSl = `${mainSl} .bBlocksTestPurpose`;
   const typho = `${mainSl} p`;
   const div = `${mainSl} div`;
   const backgroundStyle = `${mainSl} .backgroundStyle`;
+  const shadows = `${mainSl} .shadow`;
+  const allBorder = `${mainSl} .allBorder`;
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("style", {
     dangerouslySetInnerHTML: {
       __html: `
@@ -444,7 +448,7 @@ const Style = ({
 		}
 			${div}{
 			width:${width[device]};
-			background-color:red;
+			
 			}
 
 
@@ -452,10 +456,15 @@ const Style = ({
                 ${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getBackgroundCSS)(ImageType)}
 				
                 }
+			${allBorder}{
+			${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getBorderCSS)(borders)}
+			}
 
 
-
-
+			${shadows}{
+			 box-shadow : ${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getMultiShadowCSS)(shadow)};
+			 height :400px;
+			}
 
 
 			@media only screen and (min-width:641px) and (max-width: 1024px){
