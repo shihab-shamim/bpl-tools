@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: bpltools
+ * Plugin Name: bpl-tools
  * Description: Short description of the plugin
  * Version: 1.0.0
  * Author: bPlugins

@@ -1,7 +1,7 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "b-blocks/bpltools",
+	"name": "b-blocks/bpl-tools",
 	"version": "1.0.0",
 	"title": "bpl tools",
 	"category": "widgets",
@@ -74,14 +74,14 @@
                 "fontCategory": "sans-serif",
                 "fontFamily": "ABeeZee",
                 "fontSize": {
-                  "desktop": 36,
-                  "mobile": 28,
-                  "tab": 16
+                  "desktop": "36px",
+                  "mobile":" 28px",
+                  "tab":" 16px"
                 },
                 "fontVariant": 400,
                 "fontWeight":400,
                 "isUploadFont": false,
-                "lineHeight": 30,
+                "lineHeight": "30px",
                 "textDecoration": "",
                 "textTransform": "none",
 				"letterSpace":"1px"
@@ -137,6 +137,36 @@
 				"side": "top",
 				"radius": "5px"
 			  }
+		},
+		"profile": {
+			"type":"object",
+			"default":{
+				"id": 12,
+                "title": "Software Engineer",
+                "url": "https://i.ibb.co.com/9WMXrzb/Untitled-design-1.png",
+                "alt":"profile"
+               
+			}
+		},
+		"space":{
+			"type":"boolean",
+			"default":{
+				"side": 2,
+				"vertical": "10px",
+				"horizontal": "10px",
+				"top": "0px",
+				"right": "0px",
+				"bottom": "0px",
+				"left": "0px"
+			  }
+		},
+		"width":{
+			"type":"object",
+			"default":{
+                "desktop": "600px",
+                "mobile":"200px",
+                "tablet":"400px"
+              }
 		}
 	
 

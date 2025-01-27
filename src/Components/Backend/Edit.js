@@ -1,11 +1,12 @@
 import { useBlockProps } from "@wordpress/block-editor";
+import { withSelect } from "@wordpress/data";
 
 import Settings from "./Settings/Settings";
 import Style from "../Common/Style";
 
 const Edit = (props) => {
-  const { attributes, setAttributes, clientId } = props;
-  const { purposeType,ImageType,titleColor,header,shadow,border,borders} = attributes;
+  const { attributes, setAttributes, clientId,device } = props;
+  const { purposeType,ImageType,titleColor,header,shadow,border,borders,profile} = attributes;
   const imageStyle = ImageType?.type === "solid"
   ? { backgroundColor: ImageType?.color || "#000000b3" }
   : ImageType?.type === "gradient"
@@ -122,29 +123,21 @@ const setBorderSide = (borders) => {
   return borderStyle;
 }
 const dynamicBorderStyle = setBorderSide(borders);
-console.log(dynamicBorderStyle);
 
+console.log(ImageType);
   return (
     <>
-      <Settings {...{ attributes, setAttributes }} />
+      <Settings {...{ attributes, setAttributes , device}} />
 
-      <div {...useBlockProps()}>
-        <Style attributes={attributes} id={`block-${clientId}`} />
+      <div {...useBlockProps()}  >
+        <Style dynamicStyle={dynamicStyle} attributes={attributes} id={`block-${clientId}`} device={device} />
 
-        <div style={{display:"flex", justifyContent:"center",}}  className="bBlocksTestPurpose">
-        <div style={{textAlign:"center",minHeight:"400px",display:"flex",alignItems:"center",width:"80%",justifyContent:"center",...imageStyle,color:titleColor}} >
-        hello
-      </div>
-                    
-        </div>
         <div>
-        <p style={{dynamicStyle,boxShadow:boxShadowValue}}>Proactively productivate exceptional web-readiness through top-line internal or  sources. Intrinsicly.</p>
+        <p className="lorem" >lorem Conveniently revolutionize customized convergence and high-quality ROI. Authoritatively facilitate robust interfaces.</p>
         </div>
-        <div style={{ ...borderstyle,height:border?.height}}>
-          <h1>Hello World</h1>
-        </div>
-        <div style={{minWidth:"500px",minHeight:"300px", marginTop:"20px",...dynamicBorderStyle,display:"flex",justifyContent:"center", alignItems:"center",color:"red"} }>
-          Custom Border
+
+        <div className="backgroundStyle">
+          <span>Seamlessly brand customer directed process improvements via user-centric web-readiness. Distinctively coordinate professional deliverables after focused mindshare. Efficiently enhance resource sucking synergy without high-payoff synergy. Continually plagiarize resource sucking catalysts for change without performance based partnerships. Interactively syndicate ubiquitous imperatives with superior intellectual.</span>
         </div>
       </div>
 
@@ -153,4 +146,10 @@ console.log(dynamicBorderStyle);
     </>
   );
 };
-export default Edit;
+// export default Edit;
+export default withSelect((select) => {
+  const { getDeviceType } = select('core/editor');
+  return {
+    device: getDeviceType()?.toLowerCase(),
+  };
+})(Edit);

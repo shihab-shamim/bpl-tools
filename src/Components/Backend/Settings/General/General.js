@@ -20,6 +20,10 @@ import {
 import {
   BDevice,
   BorderControl,
+  ImageEditControl,
+  ImageHolderControl,
+  ImagePlaceholder,
+  SpaceControl,
 } from "../../../../../../bpl-tools/Components/Deprecated";
 // import { ShadowControl } from "../../../../../../bpl-tools/Components/Deprecated";
 
@@ -38,6 +42,9 @@ const General = ({ attributes, setAttributes }) => {
     selected,
     devices,
     borders,
+    profile,
+    space,
+    colors
   } = attributes;
 
   // const borderDefaults = {
@@ -47,6 +54,7 @@ const General = ({ attributes, setAttributes }) => {
   //   side: "top",
   //   radius: "5px",
   // };
+
 
 
   const optionsData = [
@@ -82,8 +90,8 @@ const General = ({ attributes, setAttributes }) => {
       {/* 2222222222222222222222 */}
       <ColorsControl
         label={__("Description Colors")}
-        value={desColor}
-        onChange={(val) => setAttributes({ desColor: val })}
+        value={colors}
+        onChange={(val) => setAttributes({ colors: val })}
       ></ColorsControl>
 
       {/* 22222222222222222222222222222222 */}
@@ -105,7 +113,7 @@ const General = ({ attributes, setAttributes }) => {
       />
       {/* 444444444444444444444444444444444 */}
       <BoxControl
-        label="Margin"
+        label="Box Controls"
         values={position}
         onChange={(newValues) => {
           setAttributes({ position: newValues });
@@ -206,12 +214,33 @@ onChange={(value)=>setAttributes({edit:value})}
       {/* 12222222 */}
 
       <BorderControl
+      label='Border Control'
         value={borders}
         onChange={(value) => {
           const updatedAttributes = updateData(attributes, value, "borders");
           setAttributes(updatedAttributes);
         }}
       />
+
+      <ImageHolderControl value={profile} label="Image Holder Control" onChange={(value)=>{
+        const updatedAttributes = updateData(attributes, value, "profile");
+        setAttributes(updatedAttributes);
+      }}/>
+
+      <ImageEditControl label='Image Edit Control' value={profile} onChange={(value)=>{
+        const updatedAttributes = updateData(attributes, value, "profile");
+        setAttributes(updatedAttributes);
+      }} />
+      <ImagePlaceholder value={profile} label="image place holder" onChange={(value)=>{
+       const updatedAttributes=updateData(attributes,value,"profile")
+       setAttributes(updatedAttributes)
+
+      }} />
+
+      <SpaceControl label='space control' value={space} onChange={(value)=>{
+        const updatedAttributes=updateData(attributes,value,"space")
+        setAttributes(updatedAttributes)
+      }} />
     </PanelBody>
   );
 };

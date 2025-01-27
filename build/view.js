@@ -418,53 +418,59 @@ __webpack_require__.r(__webpack_exports__);
 
 const Style = ({
   attributes,
-  id
+  id,
+  dynamicStyle,
+  device = "desktop"
 }) => {
   const {
-    colors
+    colors,
+    width,
+    ImageType
   } = attributes;
   const mainSl = `#${id}`;
   const blockSl = `${mainSl} .bBlocksTestPurpose`;
+  const typho = `${mainSl} p`;
+  const div = `${mainSl} div`;
+  const backgroundStyle = `${mainSl} .backgroundStyle`;
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("style", {
     dangerouslySetInnerHTML: {
       __html: `
+		${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getTypoCSS)('', dynamicStyle)?.googleFontLink}
+        ${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getTypoCSS)(typho, dynamicStyle)?.styles}
 		
-		${blockSl} p{
+	 
+		${typho}{
 			${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getColorsCSS)(colors)}
 		}
+			${div}{
+			width:${width[device]};
+			background-color:red;
+			}
+
+
+			${backgroundStyle}{
+                ${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getBackgroundCSS)(ImageType)}
+				
+                }
+
+
+
+
+
+
+			@media only screen and (min-width:641px) and (max-width: 1024px){
+			${div}{width:${width.tablet}}
+			}
+			@media only screen and (max-width: 641px){
+			${div}{width:${width.mobile}}
+	
+			}
 
 	`
     }
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Style);
-
-/***/ }),
-
-/***/ "./src/Components/Frontend/BlockName.js":
-/*!**********************************************!*\
-  !*** ./src/Components/Frontend/BlockName.js ***!
-  \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-
-const BlockName = ({
-  attributes
-}) => {
-  const {
-    purposeType
-  } = attributes;
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "bBlocksTestPurpose"
-  }, purposeType === "test" ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "Every text is written for a reason. For example, every text message you send has a purpose, whether that is to let your mum know when you will be home.") : (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "If someone sends you an invitation to a party, for example, they are telling you what time to arrive and what the sender is celebrating, and they might even."));
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (BlockName);
 
 /***/ }),
 
@@ -610,22 +616,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js");
 /* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.scss */ "./src/style.scss");
 /* harmony import */ var _Components_Common_Style__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Components/Common/Style */ "./src/Components/Common/Style.js");
-/* harmony import */ var _Components_Frontend_BlockName__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Components/Frontend/BlockName */ "./src/Components/Frontend/BlockName.js");
-
 
 
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  const blockNameEls = document.querySelectorAll('.wp-block-b-blocks-test-purpose');
+  const blockNameEls = document.querySelectorAll('.wp-block-b-blocks-bpl-tools');
   blockNameEls.forEach(blockNameEl => {
     const attributes = JSON.parse(blockNameEl.dataset.attributes);
     (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(blockNameEl).render((0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Components_Common_Style__WEBPACK_IMPORTED_MODULE_3__["default"], {
       attributes: attributes,
       id: blockNameEl.id
-    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Components_Frontend_BlockName__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      attributes: attributes
-    })));
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+      className: "lorem"
+    }, "lorem Conveniently revolutionize customized convergence and high-quality ROI. Authoritatively facilitate robust interfaces."))));
     blockNameEl?.removeAttribute('data-attributes');
   });
 });
