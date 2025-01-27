@@ -1,0 +1,160 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "b-blocks/bpltools",
+  "version": "1.0.0",
+  "title": "bpl tools",
+  "category": "widgets",
+  "description": "Short description of the Test Purpose",
+  "keywords": [
+    "bpltools"
+  ],
+  "textdomain": "b-blocks",
+  "attributes": {
+    "alignment": {
+      "type": "string",
+      "default": "center"
+    },
+    "purposeType": {
+      "type": "string",
+      "default": "test"
+    },
+    "colors": {
+      "type": "object",
+      "default": {
+        "color": "black",
+        "bg": "#B1C5A4"
+      }
+    },
+    "titleColor": {
+      "type": "string",
+      "default": "#FF0000"
+    },
+    "desColor": {
+      "type": "string",
+      "default": "#008000"
+    },
+    "ImageType": {
+      "type": "object",
+      "default": {
+        "type": "solid",
+        "color": "#000000b3",
+        "gradient": "linear-gradient(135deg, #4527a4, #8344c5)",
+        "image": {
+          "url": "https://i.ibb.co.com/9WMXrzb/Untitled-design-1.png"
+        },
+        "position": "center center",
+        "attachment": "initial",
+        "repeat": "no-repeat",
+        "size": "cover",
+        "overlayColor": "#000000b3"
+      }
+    },
+    "position": {
+      "type": "object",
+      "default": {
+        "top": "10px",
+        "right": "15px",
+        "bottom": "10px",
+        "left": "15px"
+      }
+    },
+    "buttonText": {
+      "type": "string",
+      "default": "Hello"
+    },
+    "edit": {
+      "type": "string",
+      "default": "edit your profile"
+    },
+    "header": {
+      "type": "object",
+      "default": {
+        "fontCategory": "sans-serif",
+        "fontFamily": "ABeeZee",
+        "fontSize": {
+          "desktop": 36,
+          "mobile": 28,
+          "tab": 16
+        },
+        "fontVariant": 400,
+        "fontWeight": 400,
+        "isUploadFont": false,
+        "lineHeight": 30,
+        "textDecoration": "",
+        "textTransform": "none",
+        "letterSpace": "1px"
+      }
+    },
+    "names": {
+      "type": "array",
+      "default": [
+        {
+          "name": "Shihab",
+          "title": "Software Engineer"
+        },
+        {
+          "name": "Shamim",
+          "title": "Product Manager"
+        }
+      ]
+    },
+    "shadow": {
+      "type": "array",
+      "default": [
+        {
+          "hOffset": "10px",
+          "vOffset": "10px",
+          "blur": "10px",
+          "spreed": "10px",
+          "color": "#FF5733",
+          "isInset": false
+        }
+      ]
+    },
+    "border": {
+      "type": "object",
+      "default": {
+        "width": "5px",
+        "height": "50px",
+        "style": "solid",
+        "color": "red"
+      }
+    },
+    "selected": {
+      "type": "array",
+      "default": [
+        "option1"
+      ]
+    },
+    "devices": {
+      "type": "string",
+      "default": "desktop"
+    },
+    "borders": {
+      "type": "object",
+      "default": {
+        "width": "2px",
+        "style": "dotted",
+        "color": "#ff0000",
+        "side": "top",
+        "radius": "5px"
+      }
+    }
+  },
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ],
+    "html": false
+  },
+  "example": {
+    "attributes": {}
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./view.css",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
+}
